@@ -8,42 +8,31 @@ Instalação
 
 ### RubyGems ###
 
-    sudo gem install f2b
+    gem install f2b
 
 Depois insira o código de importação em algum lugar do seu projeto.
 
-    require 'rubygems'  
-    require 'f2b'
+    require "rubygems"  
+    require "f2b"
 
 ### Bundler ###
 
 Se estiver usando o [Bundler](http://github.com/carlhuda/bundler) adicione a seguinte linha no seu Gemfile.
 
-    gem 'f2b'
-
-Como usar
----------
-
-#### cobrancas_controller.rb (Rails) ####
-
-    def create
-      cobranca = F2b::Cobranca.new
-      cobranca.sacador = {:conta => "9023010001230123", :senha => "zero"}
-      # cobranca...
-      resposta = cobranca.submit!
-      # render stuff
-    end
+    gem "f2b", "~> 0.1"
 
 Exemplo
 -------
 
-    cobranca = F2b::Cobranca.new
-    cobranca.sacador = {:conta => "3127519739821794", :senha => "laszlo", :nome => "Pirate Laszlo the Bald"}
-    cobranca.cobranca = {:valor => 10.00}
-    cobranca.demonstrativo.concat ["Mensalidade"]
-    cobranca.agendamento = {:vencimento => (Date.today + 5).strftime, :periodos => 12, :titulo => "Mensalidade"}
-    cobranca.sacados.push({:nome => "Sheng Hou", :email => "teste@f2b.com.br", :envio => "e"})
-    @resposta = cobranca.submit!
+```ruby
+cobranca = F2b::Cobranca.new
+cobranca.sacador = {:conta => "3127519739821794", :senha => "laszlo", :nome => "Pirate Laszlo the Bald"}
+cobranca.cobranca = {:valor => 10.00}
+cobranca.demonstrativo.concat ["Mensalidade"]
+cobranca.agendamento = {:vencimento => (Date.today + 5).strftime, :periodos => 12, :titulo => "Mensalidade"}
+cobranca.sacados.push({:nome => "Sheng Hou", :email => "teste@f2b.com.br", :envio => "e"})
+@resposta = cobranca.submit!
+```
 
 Licença
 -------
