@@ -118,6 +118,7 @@ module F2b
           cobranca = {}          
           cobranca[:nome] = node/"nome".to_s
           cobranca[:email] = node/"email".to_s
+          cobranca[:numero] = node/"numero".to_s
           cobranca[:url] = node/"url".to_s
           cobrancas.push(cobranca)
         end
