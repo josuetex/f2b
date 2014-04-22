@@ -114,7 +114,8 @@ module F2b
         raise message
       else
         (response/"//cobranca").each do |node|
-          cobranca = {}
+          p node
+          cobranca = {}          
           cobranca[:nome] = node/"nome".to_s
           cobranca[:email] = node/"email".to_s
           cobranca[:url] = node/"url".to_s
