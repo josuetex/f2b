@@ -100,7 +100,7 @@ module F2b
           end
         end
       end
-      
+      p response
       parse_response(response)
     end
     
