@@ -4,5 +4,5 @@ require 'f2b/cobranca'
 require 'f2b/cobranca_status'
 
 module F2b
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 end
