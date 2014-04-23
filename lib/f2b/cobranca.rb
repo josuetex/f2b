@@ -117,20 +117,10 @@ module F2b
           #p node
           cobranca = {}  
 
-          node.attributes.each_pair do |key, value|
-            cobranca[key.to_sym] = value
-          end
-          
-          node.xpath("*").each do |n|
-            nodename = n.nodename.to_sym
-            cobranca[nodename] = n.to_s
-          end   
-          # node.attributes.each_pair do |key, value|
-          #   cobranca[key.to_sym] = value
-          # end     
-          # cobranca[:nome] = node/"nome".to_s
-          # cobranca[:email] = node/"email".to_s          
-          # cobranca[:url] = node/"url".to_s
+          cobranca[:numero] = node['numero']
+          cobranca[:nome] = node/"nome".to_s
+          cobranca[:email] = node/"email".to_s          
+          cobranca[:url] = node/"url".to_s
           cobrancas.push(cobranca)
         end
       end
