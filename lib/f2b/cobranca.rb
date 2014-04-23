@@ -114,15 +114,23 @@ module F2b
         raise message
       else
         (response/"//cobranca").each do |node|
-          p node
-          cobranca = {}     
+          #p node
+          cobranca = {}  
+
           node.attributes.each_pair do |key, value|
             cobranca[key.to_sym] = value
-          end     
-          cobranca[:nome] = node/"nome".to_s
-          cobranca[:email] = node/"email".to_s
-          cobranca[:numero] = node/"numero".to_s
-          cobranca[:url] = node/"url".to_s
+          end
+          
+          node.xpath("*").each do |n|
+            nodename = n.nodename.to_sym
+            cobranca[nodename] = n.to_s
+          end   
+          # node.attributes.each_pair do |key, value|
+          #   cobranca[key.to_sym] = value
+          # end     
+          # cobranca[:nome] = node/"nome".to_s
+          # cobranca[:email] = node/"email".to_s          
+          # cobranca[:url] = node/"url".to_s
           cobrancas.push(cobranca)
         end
       end
