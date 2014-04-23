@@ -115,7 +115,10 @@ module F2b
       else
         (response/"//cobranca").each do |node|
           p node
-          cobranca = {}          
+          cobranca = {}     
+          node.attributes.each_pair do |key, value|
+            cobranca[key.to_sym] = value
+          end     
           cobranca[:nome] = node/"nome".to_s
           cobranca[:email] = node/"email".to_s
           cobranca[:numero] = node/"numero".to_s
