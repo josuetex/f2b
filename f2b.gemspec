@@ -1,6 +1,6 @@
 # encoding: utf-8
 $:.unshift File.expand_path('../lib', __FILE__)
-require 'f2b'
+require 'f2b/version'
 
 Gem::Specification.new do |s|
   s.name = 'f2b'
