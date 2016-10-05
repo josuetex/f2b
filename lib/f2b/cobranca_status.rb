@@ -63,15 +63,16 @@ module F2b
       if message.include? "ERRO"
         raise message
       else
-        (response/"//cobranca").each do |node|
+	document = Nokogiri::XML(response.http_response.body)
+        document.xpath("//cobranca").each do |node|
           node.attributes.each_pair do |key, value|
-            cobranca[key.to_sym] = value
-          end
+            cobranca[key.to_sym] = value.value
+          end        
           
-          node.xpath("*").each do |n|
-            nodename = n.nodename.to_sym
-            cobranca[nodename] = n.to_s
-          end
+          #node.xpath("*").each do |n|
+          #  nodename = n.nodename.to_sym
+          #  cobranca[nodename] = n.to_s
+          #end
         end
       end
       
